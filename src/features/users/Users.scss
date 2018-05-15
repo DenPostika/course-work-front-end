@@ -1,0 +1,50 @@
+@import '../../styles/mixins';
+
+.users-users {
+   .title {
+     font-family: Helvetica-Bold;
+     font-size: 36px;
+     color: #FFFFFF;
+     margin: 10px 0 20px 10px;
+   }
+  .list_wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .list_item {
+      display: flex;
+      align-items: center;
+      height: 70px;
+      background: rgba(216,216,216, 0.4);
+      box-shadow: 0 1px 0 0 rgba(255,255,255,0.50);
+      padding: 0 20px;
+      .avatar{
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        margin-right: 25px;
+      }
+      .name{
+        font-family: Helvetica-Bold;
+        font-size: 20px;
+        color: #FFFFFF;
+        text-align: center;
+      }
+      .delete{
+        margin-left: auto;
+        color: #fff;
+        border: none;
+        background: transparent;
+        font-size: 24px;
+        &:hover {
+          color: #BC3838;
+        }
+      }
+    }
+  }
+}

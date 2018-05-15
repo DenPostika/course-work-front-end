@@ -1,0 +1,22 @@
+@import '../../styles/mixins';
+
+.home-face-recap {
+  .title {
+    font-family: Helvetica-Bold;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    width: 255px;
+    line-height: 22px;
+  }
+  .circle {
+    width: 400px;
+    height: 400px;
+    background: #CED4E6;
+    margin-bottom: 40px;
+    border: 8px solid #fff;
+    overflow: hidden;
+    position: relative;
+    transform: scale(-1, 1);
+  }
+}

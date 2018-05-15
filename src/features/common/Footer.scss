@@ -1,0 +1,21 @@
+@import '../../styles/mixins';
+
+.common-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-left: 60px;
+  & .box{
+    height: 60px;
+    justify-content: space-between;
+    padding: 7px;
+  }
+  & span{
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 12px;
+    color: #CED4E6;
+    text-align: center;
+  }
+}

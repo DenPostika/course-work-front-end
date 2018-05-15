@@ -1,0 +1,53 @@
+@import '../../styles/mixins';
+
+.home-scan {
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 266px;
+    width: 400px;
+  }
+  .smile {
+    font-family: AppleColorEmoji;
+    font-size: 64px;
+    color: #000000;
+  }
+  .title {
+    font-family: Helvetica-Bold;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 22px;
+  }
+  .input{
+    background: transparent;
+    font-family: Helvetica-Bold;
+    color: #FFF;
+    border: none;
+    border-bottom: 2px solid #fff;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    width: 300px;
+    &::placeholder{
+      color: #ddd;
+    }
+  }
+  .btn{
+    background: #14B590;
+    border-radius: 5px;
+    font-family: Helvetica-Bold;
+    font-size: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    border: none;
+    width: 300px;
+    padding: 15px;
+  }
+}

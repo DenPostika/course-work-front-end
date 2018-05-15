@@ -1,0 +1,14 @@
+@import '../../styles/mixins';
+
+.common-box {
+  display: flex;
+  padding: 15px;
+  &.centered{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &.circle{
+    border-radius: 50%;
+  }
+}
