@@ -10,7 +10,9 @@
     "devPort": 6075,
     "studioPort": 6076,
     "buildPort": 6077,
-    "plugins": [],
+    "plugins": [
+      "redux-saga"
+    ],
     "css": "sass"
   },
   "scripts": {
@@ -84,6 +86,7 @@
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/react-fontawesome": "0.0.19",
-    "react-webcam": "^0.5.0"
+    "react-webcam": "^0.5.0",
+    "rekit-plugin-redux-saga": "^1.0.0"
   }
 }

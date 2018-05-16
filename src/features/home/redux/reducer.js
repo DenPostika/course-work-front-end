@@ -1,6 +1,12 @@
 import initialState from './initialState';
+import { reducer as faceRecordingReducer } from './faceRecording';
+import { reducer as addFaceNameReducer } from './addFaceName';
+import { reducer as addNewFaceReducer } from './addNewFace';
 
 const reducers = [
+  faceRecordingReducer,
+  addFaceNameReducer,
+  addNewFaceReducer,
 ];
 
 export default function reducer(state = initialState, action) {

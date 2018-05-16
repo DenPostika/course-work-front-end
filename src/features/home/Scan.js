@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 
 import Box from '../common/Box';
-import FaceRecap from './FaceRecap';
+import FaceCapture from './FaceCapture';
 
 export class Scan extends Component {
   static propTypes = {
@@ -15,6 +15,15 @@ export class Scan extends Component {
   state = {
     name: ''
   };
+  onAddFaceName = (e) => {
+    e.preventDefault();
+    this.props.actions.addFaceName();
+  };
+  handleAddNewFace = e => {
+    e.preventDefault();
+    this.props.actions.addNewFace();
+
+  };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -22,17 +31,27 @@ export class Scan extends Component {
   renderContent = () => {
     const form = (
       <Box customClass="centered">
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={this.onAddFaceName}>
           <span className="smile">😀</span>
           <span className="title">Супер! Введите свое имя в поле ниже</span>
-          <input className="input" type="text" placeholder="Имя" value={this.state.name} name="name" onChange={this.handleChange} />
-          <button className="btn" type="submit" >Загрузить</button>
+          <input
+            className="input"
+            type="text"
+            placeholder="Имя"
+            pattern=".{3,}"
+            title="Не менее трех символов"
+            required
+            value={this.state.name}
+            name="name"
+            onChange={this.handleChange}
+          />
+          <button className="btn" type="submit" disabled={this.props.loading}>Загрузить</button>
         </form>
       </Box>
     );
-    const successForm = (
+    const success = (
       <Box customClass="centered">
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={this.handleAddNewFace}>
           <span className="smile">🎉</span>
           <span className="title">Поздравляем! Ваше лицо добавлено!</span>
 
@@ -45,15 +64,15 @@ export class Scan extends Component {
       case 'form':
         content = form;
         break;
-      case 'successForm':
-        content = successForm;
+      case 'success':
+        content = success;
         break;
-      case 'faceRecap':
-        content = <FaceRecap />;
+      case 'faceCapture':
+        content = <FaceCapture />;
         break;
       default:
         // content = form;
-        content = <FaceRecap />;
+        content = <FaceCapture />;
     }
     return content;
   };
@@ -70,6 +89,8 @@ export class Scan extends Component {
 function mapStateToProps(state) {
   return {
     home: state.home,
+    activeTab: state.home.activeTab,
+    loading: state.home.addFaceNamePending,
   };
 }
 

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from './redux/actions';
 
 import Box from '../common/Box';
 import faceID from '../../images/faceID.svg';
 
-export default class FaceRecap extends Component {
+export class FaceCapture extends Component {
   static propTypes = {
-
-  };
-  static defaultProps = {
-    videoSrc: null,
+    home: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
   };
   state = {
     videoSrc: null,
@@ -22,13 +24,14 @@ export default class FaceRecap extends Component {
   handleVideo = (stream) => {
     // Update the state, triggering the component to re-render with the correct stream
     this.setState({ videoSrc: window.URL.createObjectURL(stream) });
+    this.props.actions.faceRecording();
   };
   videoError = () => {
 
   };
   render() {
     return (
-      <div className="home-face-recap">
+      <div className="home-face-capture">
         {this.state.videoSrc ? (
           <Box customClass="centered">
             <Box customClass="circle centered">
@@ -51,8 +54,26 @@ export default class FaceRecap extends Component {
             </span>
           </Box>
         )}
-
       </div>
     );
   }
 }
+
+/* istanbul ignore next */
+function mapStateToProps(state) {
+  return {
+    home: state.home,
+  };
+}
+
+/* istanbul ignore next */
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({ ...actions }, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FaceCapture);

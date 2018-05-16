@@ -49,5 +49,30 @@
     border: none;
     width: 300px;
     padding: 15px;
+    outline: none;
+    position: relative;
+    &:disabled{
+      background: #eee;
+      color: transparent;
+      &::after{
+        content: '';
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 3px solid #777777;
+        border-top-color: green;
+        animation: btnPreloader 666ms infinite linear;
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 7px);
+      }
+    }
+
   }
+}
+
+@keyframes btnPreloader {
+  0% {transform: rotate(0);}
+  100% {transform: rotate(360deg);}
 }
